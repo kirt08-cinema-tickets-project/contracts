@@ -64,8 +64,6 @@ jobs:
         - name: Check dist contents 1
           run: |
             ls
-            cd dist
-            ls
 
         - name: Download dist 
           uses: actions/download-artifact@v4 
