@@ -37,6 +37,13 @@ jobs:
             run: |
               poetry version patch
               poetry build
+
+          - name: Check dist contents
+            run: |
+              ls
+              cd dist
+              ls
+
           - name: Upload dist 
             uses: actions/upload-artifact@v4 
             with: 
@@ -54,10 +61,22 @@ jobs:
         - name: Install Poetry
           uses: snok/install-poetry@v1
 
+        - name: Check dist contents 1
+          run: |
+            ls
+            cd dist
+            ls
+
         - name: Download dist 
           uses: actions/download-artifact@v4 
           with: 
             name: dist
+
+        - name: Check dist contents 2
+          run: |
+            ls
+            cd dist
+            ls
 
         - name: Configure TestPyPI
           run: |
