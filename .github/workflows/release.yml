@@ -1,0 +1,50 @@
+name: Publish Proto Contracts
+
+on:
+    push:
+        branches:
+            -main
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: Set up Python
+            uses: actions/setup-python@v5
+            with:
+                python-version: 3.12
+
+          - name: Install Poetry
+            uses: snok/install-poetry@v1
+
+          - name: Install dependencies
+            run: |
+              poetry install 
+
+          - name: Generate protobuf
+            run: |
+              poetry run python -m grpc_tools.protoc \
+              -I proto \
+              --python_out=contracts \
+              --grpc_python_out=contracts \
+              proto/*.proto
+
+          - name: Build
+            run: |
+              poetry version patch
+              poetry build
+    
+    publish:
+      runs-on: ubuntu-latest
+      needs: [build]
+      - name: Configure TestPyPI
+        run: |
+          poetry config repositories.testpypi https://test.pypi.org/legacy/
+          poetry config http-basic.testpypi __token__ ${{ secrets.TEST_PYPI_API_TOKEN }}
+
+      - name: Publish to TestPyPI
+        run: poetry publish -r testpypi
