@@ -29,8 +29,8 @@ jobs:
             run: |
               poetry run python -m grpc_tools.protoc \
               -I proto \
-              --python_out=contracts \
-              --grpc_python_out=contracts \
+              --python_out=kirt08_contracts \
+              --grpc_python_out=kirt08_contracts \
               proto/*.proto
 
           - name: Build
