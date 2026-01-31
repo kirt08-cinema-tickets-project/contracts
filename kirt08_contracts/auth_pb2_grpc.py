@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import auth_pb2 as auth__pb2
+from kirt08_contracts import auth_pb2 as auth__pb2
 
 GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
@@ -26,8 +26,7 @@ if _version_not_supported:
 
 
 class AuthServiceStub(object):
-    """1
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -43,12 +42,10 @@ class AuthServiceStub(object):
 
 
 class AuthServiceServicer(object):
-    """1
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def SendOtp(self, request, context):
-        """SendOtp - RPC
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -70,8 +67,7 @@ def add_AuthServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class AuthService(object):
-    """1
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def SendOtp(request,
