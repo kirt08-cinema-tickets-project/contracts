@@ -26,12 +26,8 @@ jobs:
               poetry install 
 
           - name: Generate protobuf
-            run: |
-              poetry run python -m grpc_tools.protoc \
-              -I proto \
-              --python_out=kirt08_contracts \
-              --grpc_python_out=kirt08_contracts \
-              proto/*.proto
+            run:
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts=proto --python_out=. --grpc_python_out=. proto/auth.proto
 
           - name: Build
             run: |

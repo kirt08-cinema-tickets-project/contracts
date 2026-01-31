@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from kirt08_contracts import auth_pb2 as auth__pb2
+from kirt08_contracts import auth_pb2 as kirt08__contracts_dot_auth__pb2
 
 GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + ' but the generated code in auth_pb2_grpc.py depends on'
+        + ' but the generated code in kirt08_contracts/auth_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -36,8 +36,8 @@ class AuthServiceStub(object):
         """
         self.SendOtp = channel.unary_unary(
                 '/auth.v1.AuthService/SendOtp',
-                request_serializer=auth__pb2.SendOtpRequest.SerializeToString,
-                response_deserializer=auth__pb2.SendOtpResponse.FromString,
+                request_serializer=kirt08__contracts_dot_auth__pb2.SendOtpRequest.SerializeToString,
+                response_deserializer=kirt08__contracts_dot_auth__pb2.SendOtpResponse.FromString,
                 _registered_method=True)
 
 
@@ -55,8 +55,8 @@ def add_AuthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SendOtp': grpc.unary_unary_rpc_method_handler(
                     servicer.SendOtp,
-                    request_deserializer=auth__pb2.SendOtpRequest.FromString,
-                    response_serializer=auth__pb2.SendOtpResponse.SerializeToString,
+                    request_deserializer=kirt08__contracts_dot_auth__pb2.SendOtpRequest.FromString,
+                    response_serializer=kirt08__contracts_dot_auth__pb2.SendOtpResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -84,8 +84,8 @@ class AuthService(object):
             request,
             target,
             '/auth.v1.AuthService/SendOtp',
-            auth__pb2.SendOtpRequest.SerializeToString,
-            auth__pb2.SendOtpResponse.FromString,
+            kirt08__contracts_dot_auth__pb2.SendOtpRequest.SerializeToString,
+            kirt08__contracts_dot_auth__pb2.SendOtpResponse.FromString,
             options,
             channel_credentials,
             insecure,
