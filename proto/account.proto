@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package account.v1;
+
+service AccountService {
+    rpc GetAccount (GetAccountRequest) returns (GetAccountResponse);
+}
+
+message GetAccountRequest {
+    int64 id = 1;
+}
+
+message GetAccountResponse {
+    int64 id = 1;
+    string phone = 2;
+    string email = 3;
+    bool is_phone_verified = 4;
+    bool is_email_verified = 5;
+    Role role = 6;
+}
+
+enum Role {
+    USER = 0;
+    ADMIN = 1;
+}

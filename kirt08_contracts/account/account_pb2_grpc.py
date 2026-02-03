@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from kirt08_contracts import auth_pb2 as kirt08__contracts_dot_auth__pb2
+from kirt08_contracts.account import account_pb2 as kirt08__contracts_dot_account_dot_account__pb2
 
 GRPC_GENERATED_VERSION = '1.76.0'
 GRPC_VERSION = grpc.__version__
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + ' but the generated code in kirt08_contracts/auth_pb2_grpc.py depends on'
+        + ' but the generated code in kirt08_contracts/account/account_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AuthServiceStub(object):
+class AccountServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -34,43 +34,43 @@ class AuthServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.SendOtp = channel.unary_unary(
-                '/auth.v1.AuthService/SendOtp',
-                request_serializer=kirt08__contracts_dot_auth__pb2.SendOtpRequest.SerializeToString,
-                response_deserializer=kirt08__contracts_dot_auth__pb2.SendOtpResponse.FromString,
+        self.GetAccount = channel.unary_unary(
+                '/account.v1.AccountService/GetAccount',
+                request_serializer=kirt08__contracts_dot_account_dot_account__pb2.GetAccountRequest.SerializeToString,
+                response_deserializer=kirt08__contracts_dot_account_dot_account__pb2.GetAccountResponse.FromString,
                 _registered_method=True)
 
 
-class AuthServiceServicer(object):
+class AccountServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def SendOtp(self, request, context):
+    def GetAccount(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_AuthServiceServicer_to_server(servicer, server):
+def add_AccountServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'SendOtp': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendOtp,
-                    request_deserializer=kirt08__contracts_dot_auth__pb2.SendOtpRequest.FromString,
-                    response_serializer=kirt08__contracts_dot_auth__pb2.SendOtpResponse.SerializeToString,
+            'GetAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAccount,
+                    request_deserializer=kirt08__contracts_dot_account_dot_account__pb2.GetAccountRequest.FromString,
+                    response_serializer=kirt08__contracts_dot_account_dot_account__pb2.GetAccountResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'auth.v1.AuthService', rpc_method_handlers)
+            'account.v1.AccountService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('auth.v1.AuthService', rpc_method_handlers)
+    server.add_registered_method_handlers('account.v1.AccountService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class AuthService(object):
+class AccountService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def SendOtp(request,
+    def GetAccount(request,
             target,
             options=(),
             channel_credentials=None,
@@ -83,9 +83,9 @@ class AuthService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/auth.v1.AuthService/SendOtp',
-            kirt08__contracts_dot_auth__pb2.SendOtpRequest.SerializeToString,
-            kirt08__contracts_dot_auth__pb2.SendOtpResponse.FromString,
+            '/account.v1.AccountService/GetAccount',
+            kirt08__contracts_dot_account_dot_account__pb2.GetAccountRequest.SerializeToString,
+            kirt08__contracts_dot_account_dot_account__pb2.GetAccountResponse.FromString,
             options,
             channel_credentials,
             insecure,
