@@ -51,10 +51,13 @@ message TelegrmaVerifyRequest {
     map<string, string> query = 1;
 }
 
+message Tokens {
+    string access_token = 1;
+    string refresh_token = 2;
+}
 message TelegramVerifyResponse {
     oneof result {
         string url = 1;
-        string access_token = 2;
-        string refresh_token = 3;
+        Tokens tokens = 2;
     }
 }
