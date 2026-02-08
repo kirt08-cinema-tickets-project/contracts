@@ -12,6 +12,9 @@ service AuthService {
 
     rpc TelegramInit (google.protobuf.Empty) returns (TelegramInitResponse);
     rpc TelegramVerify (TelegrmaVerifyRequest) returns (TelegramVerifyResponse);
+    rpc TelegramComplete (TelegramCompleteRequest) returns (TelegramCompleteResponse);
+    rpc TelegramConsume (TelegramConsumeRequest) returns (TelegramConsumeResponse);
+
 }
 
 message SendOtpRequest {
@@ -60,4 +63,22 @@ message TelegramVerifyResponse {
         string url = 1;
         Tokens tokens = 2;
     }
+}
+
+message TelegramCompleteRequest {
+    string session_id = 1;
+    string phone = 2;
+}
+
+message TelegramCompleteResponse {
+    string session_id = 1;
+}
+
+message TelegramConsumeRequest {
+    string session_id = 1;
+}
+
+message TelegramConsumeResponse {
+    string access_token = 1;
+    string refresh_token = 2;
 }
