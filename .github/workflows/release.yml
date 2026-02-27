@@ -29,6 +29,7 @@ jobs:
             run: |
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/auth=proto --python_out=. --grpc_python_out=. proto/auth.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/account=proto --python_out=. --grpc_python_out=. proto/account.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/users=proto --python_out=. --grpc_python_out=. proto/users.proto
 
           - name: Build
             run: |
