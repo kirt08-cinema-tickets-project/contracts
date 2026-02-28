@@ -26,7 +26,7 @@ message CreateUserResponse {
 }
 
 message PatchUserRequest {
-    string user_id = 1;
+    string id = 1;
     optional string name = 2;
 }
 
