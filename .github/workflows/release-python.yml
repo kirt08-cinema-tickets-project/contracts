@@ -30,6 +30,10 @@ jobs:
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/auth=proto --python_out=. --grpc_python_out=. proto/auth.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/account=proto --python_out=. --grpc_python_out=. proto/account.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/users=proto --python_out=. --grpc_python_out=. proto/users.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/media=proto --python_out=. --grpc_python_out=. proto/media.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/movie=proto --python_out=. --grpc_python_out=. proto/movie.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/category=proto --python_out=. --grpc_python_out=. proto/category.proto
+
 
           - name: Build
             run: |
