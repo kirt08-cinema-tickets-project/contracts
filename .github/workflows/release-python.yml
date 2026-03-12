@@ -33,7 +33,7 @@ jobs:
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/media=proto --python_out=. --grpc_python_out=. proto/media.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/movie=proto --python_out=. --grpc_python_out=. proto/movie.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/category=proto --python_out=. --grpc_python_out=. proto/category.proto
-
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/theater=proto --python_out=. --grpc_python_out=. proto/theater.proto
 
           - name: Build
             run: |
