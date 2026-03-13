@@ -34,6 +34,8 @@ jobs:
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/movie=proto --python_out=. --grpc_python_out=. proto/movie.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/category=proto --python_out=. --grpc_python_out=. proto/category.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/theater=proto --python_out=. --grpc_python_out=. proto/theater.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/hall=proto --python_out=. --grpc_python_out=. proto/hall.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/seats=proto --python_out=. --grpc_python_out=. proto/seats.proto
 
           - name: Build
             run: |
