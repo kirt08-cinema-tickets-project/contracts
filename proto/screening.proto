@@ -23,7 +23,7 @@ message CreateScreeningResponse {
 }
 
 message GetScreeningsRequest {
-    optional string thater_id = 1;
+    optional string theater_id = 1;
     optional string date = 2;
 }
 
@@ -51,7 +51,7 @@ message GetScreeningResponse {
 message Screening {
     string id = 1;
     string start_at = 2;
-    string end_ar = 3;
+    string end_at = 3;
 
     Theater theater = 4;
     Hall hall = 5;
