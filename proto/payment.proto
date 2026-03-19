@@ -7,7 +7,7 @@ service PaymentService {
     rpc CreatePayment (CreatePaymentRequest) returns (CreatePaymentResponse);
     rpc ProcessPaymentEvent (ProcessPaymentEventRequest) returns (ProcessPaymentEventResponse);
 
-    rpc GetUserPaymentMethods (GetUserPaymentMethods) returns (GetUserPaymentMethodsResponse);
+    rpc GetUserPaymentMethods (GetUserPaymentMethodsRequest) returns (GetUserPaymentMethodsResponse);
     rpc DeleteUserPaymentMethod (DeleteUserPaymentMethodRequest) returns (DeleteUserPaymentMethodResponse);
 }
 
@@ -40,7 +40,7 @@ message ProcessPaymentEventResponse {
     bool ok = 1;
 }
 
-message GetUserPaymentMethods {
+message GetUserPaymentMethodsRequest {
     string user_id = 1;
 }
 
