@@ -66,6 +66,7 @@ message Movie {
     string slug = 3;
     int32 duration = 4;
     string banner = 5;
+    string poster = 6;
 }
 
 message Theater {

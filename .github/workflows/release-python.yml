@@ -39,6 +39,7 @@ jobs:
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/screening=proto --python_out=. --grpc_python_out=. proto/screening.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/payment=proto --python_out=. --grpc_python_out=. proto/payment.proto
               poetry run python -m grpc_tools.protoc -I kirt08_contracts/refund=proto --python_out=. --grpc_python_out=. proto/refund.proto
+              poetry run python -m grpc_tools.protoc -I kirt08_contracts/booking=proto --python_out=. --grpc_python_out=. proto/booking.proto
 
           - name: Build
             run: |
